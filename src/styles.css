@@ -1,0 +1,123 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Lato", system-ui, -apple-system, sans-serif;
+  --font-display: "Lato", system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-dark: var(--primary-dark);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-brand-green: var(--brand-green);
+  --color-brand-green-foreground: var(--brand-green-foreground);
+  --color-brand-red: var(--brand-red);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-surface: var(--surface);
+
+  --shadow-soft: 0 1px 2px rgba(15, 58, 93, 0.04), 0 4px 16px rgba(15, 58, 93, 0.06);
+  --shadow-card: 0 2px 8px rgba(15, 58, 93, 0.06), 0 12px 32px rgba(15, 58, 93, 0.08);
+  --shadow-elevated: 0 8px 24px rgba(15, 58, 93, 0.12), 0 24px 48px rgba(15, 58, 93, 0.14);
+}
+
+:root {
+  --radius: 0.5rem;
+
+  /* Brand palette: Mahalo Properties */
+  --background: oklch(1 0 0);
+  --foreground: oklch(0.27 0.04 257);              /* #1F2937 */
+  --surface: oklch(0.978 0.004 247);               /* #F7F8FA */
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.04 257);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.04 257);
+
+  --primary: oklch(0.34 0.08 248);                 /* #0F3A5D Mahalo blue */
+  --primary-foreground: oklch(1 0 0);
+  --primary-dark: oklch(0.26 0.07 248);
+
+  --brand-green: oklch(0.69 0.18 138);             /* #52AF4C */
+  --brand-green-foreground: oklch(1 0 0);
+  --brand-red: oklch(0.6 0.22 25);                 /* #E3282B */
+
+  --secondary: oklch(0.978 0.004 247);
+  --secondary-foreground: oklch(0.27 0.04 257);
+  --muted: oklch(0.97 0.005 247);
+  --muted-foreground: oklch(0.5 0.02 257);
+  --accent: oklch(0.95 0.012 247);
+  --accent-foreground: oklch(0.34 0.08 248);
+  --destructive: oklch(0.6 0.22 25);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(0.92 0.008 247);
+  --input: oklch(0.92 0.008 247);
+  --ring: oklch(0.34 0.08 248);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-feature-settings: "kern";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    color: var(--color-primary);
+    font-weight: 700;
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  max-width: 1280px;
+  @media (min-width: 768px) { padding-inline: 2rem; }
+}
+
+@utility eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--color-brand-green);
+}
